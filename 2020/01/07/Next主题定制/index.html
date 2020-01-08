@@ -81,14 +81,14 @@
 
 
 
-<meta name="description" content="next 采用的是swig模板引擎。swig是node端的一个优秀简洁的模板引擎。所以要定制next主题，那么首先要搞定swig的语法知识，了解它的使用方式。">
+<meta name="description" content="next 采用的是swig模板引擎，swig是一个优秀简洁的模板引擎。它有以下优点：    支持大多数主流浏览器 表达式兼容性好 面向对象的模板继承 将过滤器和转换应用到模板中的输出 可根据路径渲染页面 支持页面复用 支持动态页面 可扩展、可定制  所以要定制next主题，那么首先要搞定swig的语法知识，了解它的使用方式。 安装swig1npm install swig --save  基本用法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Next主题定制">
 <meta property="og:url" content="http://lyswwb.github.io/2020/01/07/Next%E4%B8%BB%E9%A2%98%E5%AE%9A%E5%88%B6/index.html">
 <meta property="og:site_name" content="LYSwwb">
-<meta property="og:description" content="next 采用的是swig模板引擎。swig是node端的一个优秀简洁的模板引擎。所以要定制next主题，那么首先要搞定swig的语法知识，了解它的使用方式。">
+<meta property="og:description" content="next 采用的是swig模板引擎，swig是一个优秀简洁的模板引擎。它有以下优点：    支持大多数主流浏览器 表达式兼容性好 面向对象的模板继承 将过滤器和转换应用到模板中的输出 可根据路径渲染页面 支持页面复用 支持动态页面 可扩展、可定制  所以要定制next主题，那么首先要搞定swig的语法知识，了解它的使用方式。 安装swig1npm install swig --save  基本用法">
 <meta property="article:published_time" content="2020-01-07T10:38:28.000Z">
-<meta property="article:modified_time" content="2020-01-07T11:35:42.575Z">
+<meta property="article:modified_time" content="2020-01-08T07:04:43.910Z">
 <meta property="article:author" content="LYSwwb">
 <meta property="article:tag" content="js|.net|C#|node|bootstrap">
 <meta name="twitter:card" content="summary">
@@ -361,7 +361,62 @@
       
 
       
-        <p>next 采用的是swig模板引擎。swig是node端的一个优秀简洁的模板引擎。<br>所以要定制next主题，那么首先要搞定swig的语法知识，了解它的使用方式。</p>
+        <p>next 采用的是swig模板引擎，swig是一个优秀简洁的模板引擎。它有以下优点：  </p>
+<ul>
+<li>支持大多数主流浏览器</li>
+<li>表达式兼容性好</li>
+<li>面向对象的模板继承</li>
+<li>将过滤器和转换应用到模板中的输出</li>
+<li>可根据路径渲染页面</li>
+<li>支持页面复用</li>
+<li>支持动态页面</li>
+<li>可扩展、可定制</li>
+</ul>
+<p>所以要定制next主题，那么首先要搞定swig的语法知识，了解它的使用方式。</p>
+<h2 id="安装swig"><a href="#安装swig" class="headerlink" title="安装swig"></a>安装swig</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install swig --save</span><br></pre></td></tr></table></figure>
+
+<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; variable &#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>在variable的前后都需要有空格，如果变量未定义，输出空字符。</p>
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; obj.name &#125;&#125;</span><br><span class="line">&#123;&#123; foo[bar] &#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>注：swig也可以使用“[]”访问属性。</p>
+<h3 id="if判断"><a href="#if判断" class="headerlink" title="if判断"></a>if判断</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123; % if name &#x3D;&#x3D;&#x3D; &#39;郭靖&#39; % &#125;</span><br><span class="line">  hello 靖哥哥</span><br><span class="line">&#123; % endif % &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="if-else判断"><a href="#if-else判断" class="headerlink" title="if-else判断"></a>if-else判断</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123; % if name &#x3D;&#x3D;&#x3D; &#39;郭靖&#39; % &#125;</span><br><span class="line">  hello 靖哥哥</span><br><span class="line">&#123; % elseif name &#x3D;&#x3D;&#x3D; &#39;黄蓉&#39; % &#125;</span><br><span class="line">  hello 蓉妹妹</span><br><span class="line">&#123; % else % &#125;</span><br><span class="line">  hello 欧阳峰</span><br><span class="line">&#123; % endif % &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123; % for key, val in arr % &#125;</span><br><span class="line">  &lt;p&gt;&#123; &#123; key &#125; &#125; -- &#123; &#123; val &#125; &#125;&lt;&#x2F;p&gt;</span><br><span class="line">&#123; % endfor % &#125;</span><br></pre></td></tr></table></figure>
+<p>for循环内置变量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">loop.index：当前循环的索引（1开始）</span><br><span class="line">loop.index0：当前循环的索引（0开始）</span><br><span class="line">loop.revindex：当前循环从结尾开始的索引（1开始）</span><br><span class="line">loop.revindex0：当前循环从结尾开始的索引（0开始）</span><br><span class="line">loop.key：如果迭代是对象，是当前循环的键，否则同 loop.index</span><br><span class="line">loop.first：如果是第一个值返回 true</span><br><span class="line">loop.last：如果是最后一个值返回 true</span><br><span class="line">loop.cycle：一个帮助函数，以指定的参数作为周期</span><br></pre></td></tr></table></figure>
+<p>使用方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123; % for key, val in arr % &#125;</span><br><span class="line">  &lt;p&gt;&#123;&#123; loop.index &#125;&#125; -- &#123;&#123; key &#125;&#125; -- &#123;&#123; val &#125;&#125;&lt;&#x2F;p&gt;</span><br><span class="line">&#123; % endfor % &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="强大的内置过滤器"><a href="#强大的内置过滤器" class="headerlink" title="强大的内置过滤器"></a>强大的内置过滤器</h3><p>用于修改变量。变量名称后用 “ | ” 字符分隔添加过滤器。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">add(value)：使变量与value相加，可以转换为数值字符串会自动转换为数值。</span><br><span class="line">addslashes：用 \ 转义字符串</span><br><span class="line">capitalize：大写首字母</span><br><span class="line">date(format[, tzOffset])：转换日期为指定格式</span><br><span class="line">format：格式</span><br><span class="line">tzOffset：时区</span><br><span class="line">default(value)：默认值（如果变量为undefined，null，false）</span><br><span class="line">escape([type])：转义字符</span><br><span class="line">    默认： &amp;, &lt;, &gt;, &quot;, &#39;</span><br><span class="line">    js: &amp;, &lt;, &gt;, &quot;, &#39;, &#x3D;, -, ;</span><br><span class="line">first：返回数组第一个值</span><br><span class="line">join(glue)：同[].join</span><br><span class="line">json_encode([indent])：类似JSON.stringify, indent为缩进空格数</span><br><span class="line">last：返回数组最后一个值</span><br><span class="line">length：返回变量的length，如果是object，返回key的数量</span><br><span class="line">lower：同&#39;&#39;.toLowerCase()</span><br><span class="line">raw：指定输入不会被转义</span><br><span class="line">replace(search, replace[, flags])：同&#39;&#39;.replace</span><br><span class="line">reverse：翻转数组</span><br><span class="line">striptags：去除html&#x2F;xml标签</span><br><span class="line">title：大写首字母</span><br><span class="line">uniq：数组去重</span><br><span class="line">upper：同&#39;&#39;.toUpperCase</span><br><span class="line">url_encode：同encodeURIComponent</span><br><span class="line">url_decode：同decodeURIComponemt</span><br></pre></td></tr></table></figure>
+<p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; name|title &#125;&#125; 的生日是：&#123;&#123; birthday|date(&#39;yy-MM-dd&#39;) &#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>也可以使用 filter 标签来为块内容添加过滤器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% filter upper %&#125;oh hi, paul&#123;% endfilter %&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="自定义过滤器"><a href="#自定义过滤器" class="headerlink" title="自定义过滤器"></a>自定义过滤器</h3><p>创建一个myfilter.js然后引入到swig初始化函数中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swig.init(&#123; filters: require(&#39;myfilter&#39;) &#125;);</span><br></pre></td></tr></table></figure>
+<p>在myfilter.js中，每个filter方法都是一个简单的js方法，比如翻转字符：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exports.myfilter &#x3D; function (input) &#123;</span><br><span class="line">    return input.toString().split(&#39;&#39;).reverse().join(&#39;&#39;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="定义过滤器的使用"><a href="#定义过滤器的使用" class="headerlink" title="定义过滤器的使用"></a>定义过滤器的使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; name|myfilter &#125;&#125;</span><br><span class="line">    &#123;% filter myfilter %&#125;</span><br><span class="line">    I shall be filtered</span><br><span class="line">&#123;% endfilter %&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="使用filter参数定义"><a href="#使用filter参数定义" class="headerlink" title="使用filter参数定义"></a>使用filter参数定义</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">exports.prefix &#x3D; function(input, prefix) &#123;</span><br><span class="line">    return prefix.toString() + input.toString();</span><br><span class="line">&#125;;</span><br><span class="line">&#123;&#123; name|prefix(&#39;my prefix&#39;) &#125;&#125;</span><br><span class="line">&#123;% filter prefix &#39;my prefix&#39; %I will be prefixed with &quot;my prefix&quot;.&#123;% endfilter %&#125;</span><br><span class="line">&#123;% filter prefix foo %&#125;I will be prefixed with the value stored to &#96;foo&#96;.&#123;% endfilter %&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="模板继承"><a href="#模板继承" class="headerlink" title="模板继承"></a>模板继承</h3><p>swig 使用 extends 和 block 来实现模板，定义一个模板_layout.html，内容如以下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;&#123;% block title %&#125;&#123;% endblock  %&#125;&lt;&#x2F;title&gt;</span><br><span class="line">    &#123;% block head %&#125;&#123;% endblock  %&#125;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &#123;% block content %&#125;&#123;% endblock  %&#125;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>下面我们来使用这个模板，创建index.html内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;% extends &#39;_layout.html&#39; %&#125;</span><br><span class="line">&#123;% block title %&#125; index &#123;% endblock %&#125;</span><br><span class="line">&#123;% block head %&#125;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;&#x2F;assets&#x2F;css&#x2F;main.css&quot;&gt;</span><br><span class="line">    &lt;script src&#x3D;&#39;.js&#39;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&#123;% endblock %&#125;</span><br><span class="line">&#123;% block content %&#125;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;h1&gt;hello swig&lt;&#x2F;h1&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&#123;% endblock %&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>注：在子页面并不一定要实现全部的block，可以选择性实现。</p>
+<h3 id="include-模板"><a href="#include-模板" class="headerlink" title="include 模板"></a>include 模板</h3><p>包含一个模板到当前位置，这个模板将使用当前上下文</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;&#123;% block title %&#125;&#123;% endblock  %&#125;&lt;&#x2F;title&gt;</span><br><span class="line">    &#123;% include &quot;.&#x2F;includes&#x2F;head.html&quot; %&#125;</span><br><span class="line">    &#123;% block head %&#125;&#123;% endblock  %&#125;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &#123;% include &quot;.&#x2F;includes&#x2F;header.html&quot; %&#125;</span><br><span class="line">    &#123;% block content %&#125;&#123;% endblock  %&#125;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><h3 id="内置标签"><a href="#内置标签" class="headerlink" title="内置标签"></a>内置标签</h3><p>extends: 使当前模板或页面继承父模板，必须在文件最前<br>block：定义一个块，使之可以被继承的模板重写，或者重写父模板的同名块 参数： name[块的名字，必须以字母数字下划线开头]</p>
+<p>set：设置一个变量，在当前上下文中复用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;% set foo &#x3D; [0, 1, 2, 3, 4, 5] %&#125; </span><br><span class="line">&#123;% for num in foo %&#125;</span><br><span class="line">    &lt;li&gt;&#123;&#123; num &#125;&#125;&lt;&#x2F;li&gt;</span><br><span class="line">&#123;% endfor %&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
 
       
     </div>
@@ -449,8 +504,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -510,6 +574,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装swig"><span class="nav-number">1.</span> <span class="nav-text">安装swig</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本用法"><span class="nav-number">2.</span> <span class="nav-text">基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量"><span class="nav-number">2.1.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性"><span class="nav-number">2.2.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#if判断"><span class="nav-number">2.3.</span> <span class="nav-text">if判断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#if-else判断"><span class="nav-number">2.4.</span> <span class="nav-text">if-else判断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for循环"><span class="nav-number">2.5.</span> <span class="nav-text">for循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#强大的内置过滤器"><span class="nav-number">2.6.</span> <span class="nav-text">强大的内置过滤器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义过滤器"><span class="nav-number">2.7.</span> <span class="nav-text">自定义过滤器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义过滤器的使用"><span class="nav-number">2.8.</span> <span class="nav-text">定义过滤器的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用filter参数定义"><span class="nav-number">2.9.</span> <span class="nav-text">使用filter参数定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模板继承"><span class="nav-number">2.10.</span> <span class="nav-text">模板继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#include-模板"><span class="nav-number">2.11.</span> <span class="nav-text">include 模板</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签"><span class="nav-number">3.</span> <span class="nav-text">标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内置标签"><span class="nav-number">3.1.</span> <span class="nav-text">内置标签</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
