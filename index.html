@@ -842,7 +842,125 @@ text-shadow属性可以接受多个阴影效果,但是需要使用&apos;,&apos;�
       
         
           
-            
+            <h2 id="一、CSS3-box-shadow属性介绍"><a href="#一、CSS3-box-shadow属性介绍" class="headerlink" title="一、CSS3 box-shadow属性介绍"></a>一、CSS3 box-shadow属性介绍</h2><p>box-shadow属性可以给页面元素添加阴影效果</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">box-shadow: offset-x offset-y blur spread color position,[&lt;shadow&gt;];</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>offset-x</td>
+<td>必需的。水平阴影的位置。允许为负值。</td>
+</tr>
+<tr>
+<td>offset-y</td>
+<td>必需的。垂直阴影的位置。允许为负值。</td>
+</tr>
+<tr>
+<td>blur</td>
+<td>可选。阴影模糊距离，即模糊程度。值越大，模糊面积越大，阴影就越大越淡。不能为负值。默认为0。</td>
+</tr>
+<tr>
+<td>spread</td>
+<td>可选。阴影的大小，即阴影的扩展长度值。取正值，阴影扩大；取负值阴影收缩，默认值0，阴影和元素同样大。</td>
+</tr>
+<tr>
+<td>color</td>
+<td>可选。阴影的颜色。</td>
+</tr>
+<tr>
+<td>position</td>
+<td>可选。唯一的值 【inset 内阴影】。</td>
+</tr>
+</tbody></table>
+<h3 id="JavaScript语法"><a href="#JavaScript语法" class="headerlink" title="JavaScript语法"></a>JavaScript语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">object.style.boxShadow &#x3D; &#39;10px 10px 5px #000&#39;;</span><br></pre></td></tr></table></figure>
+<pre><code>注：boxShadow属性可以定义多个阴影，每个阴影使用逗号隔开。
+offset-x 设置水平阴影偏移量，如果为负值阴影位于元素的左边。
+offset-y 设置垂直阴影偏移量，如果为负值阴影位于元素的上方。</code></pre><h2 id="二、box-shadow的使用"><a href="#二、box-shadow的使用" class="headerlink" title="二、box-shadow的使用"></a>二、box-shadow的使用</h2><h3 id="1、offset-x-的取值"><a href="#1、offset-x-的取值" class="headerlink" title="1、offset-x 的取值"></a>1、offset-x 的取值</h3><table>
+<thead>
+<tr>
+<th><img src="/images/offset-x+.png" alt="offset-x取正值"></th>
+<th><img src="/images/offset-x-.png" alt="offset-x取负值"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>box-shadow: 10px 0 0 0 red;</td>
+<td>box-shadow: -10px 0 0 0 red;</td>
+</tr>
+</tbody></table>
+<h3 id="2、offset-y-的取值"><a href="#2、offset-y-的取值" class="headerlink" title="2、offset-y 的取值"></a>2、offset-y 的取值</h3><table>
+<thead>
+<tr>
+<th><img src="/images/offset-y+.png" alt="offset-y取正值"></th>
+<th><img src="/images/offset-y-.png" alt="offset-y取负值"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>box-shadow: 0 10px 0 0 red;</td>
+<td>box-shadow: 0 -10px 0 0 red;</td>
+</tr>
+</tbody></table>
+<h3 id="3、blur-的取值"><a href="#3、blur-的取值" class="headerlink" title="3、blur 的取值"></a>3、blur 的取值</h3><table>
+<thead>
+<tr>
+<th><img src="/images/box-shadow-blur.png" alt="blur"></th>
+<th>box-shadow: 0 10px 10px 0 red;</th>
+</tr>
+</thead>
+</table>
+<pre><code>注：这里是不是很奇怪为什么只设置了，offset-y的位置偏移，x方向上现在为什么也有阴影呢。看下面的例子，把元素的阴影从元素下方移出来。</code></pre><table>
+<thead>
+<tr>
+<th><img src="/images/offset-y-100.png" alt="offset-y-100"></th>
+<th>box-shadow: 0 210px 0 0 red;</th>
+</tr>
+</thead>
+</table>
+<p>阴影移出来后，阴影的大小和元素的大小是相同，blur取正整数时，值越大，阴影面积就越大，顾超出了元素的大小。</p>
+<h3 id="4、spread-的取值"><a href="#4、spread-的取值" class="headerlink" title="4、spread 的取值"></a>4、spread 的取值</h3><table>
+<thead>
+<tr>
+<th><img src="/images/box-shadow-spread+.png" alt="box-shadow-spread+"></th>
+<th><img src="/images/box-shadow-spread-.png" alt="box-shadow-spread-"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>box-shadow: 0 210px 0 10px red;</td>
+<td>box-shadow: 0 210px 0 -10px red;</td>
+</tr>
+</tbody></table>
+<h3 id="5、position"><a href="#5、position" class="headerlink" title="5、position"></a>5、position</h3><table>
+<thead>
+<tr>
+<th><img src="/images/box-shadow-position.png" alt="box-shadow-position"></th>
+<th>box-shadow: 0 10px 10px 0 red inset;</th>
+</tr>
+</thead>
+</table>
+<pre><code>注：position设置阴影的方向，不设置为外阴影；inset为内阴影。</code></pre><h2 id="三、box-shadow-干点啥"><a href="#三、box-shadow-干点啥" class="headerlink" title="三、box-shadow 干点啥"></a>三、box-shadow 干点啥</h2><table>
+<thead>
+<tr>
+<th>样式</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>box-shadow: 23px 23px 0px -20px red, -23px -23px 0 -20px red;</td>
+<td><img src="/images/box-shadow01.png" alt="box-shadow01"></td>
+</tr>
+<tr>
+<td>box-shadow: 0px 0px 0px 1px red;(模拟边框)</td>
+<td><img src="/images/box-shadow02.png" alt="box-shadow02"></td>
+</tr>
+<tr>
+<td>box-shadow: 0px 0px 0px 5px red,0px 0px 0px 10px black,0px 0px 0px 15px gold;(多重边框)</td>
+<td><img src="/images/box-shadow03.png" alt="box-shadow02"></td>
+</tr>
+</tbody></table>
+
           
         
       
