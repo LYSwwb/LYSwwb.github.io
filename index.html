@@ -701,7 +701,62 @@ text-shadow属性可以接受多个阴影效果,但是需要使用&apos;,&apos;�
       
         
           
-            
+            <h2 id="一、border-radius-的使用"><a href="#一、border-radius-的使用" class="headerlink" title="一、border-radius 的使用"></a>一、border-radius 的使用</h2><p>border-radius 给元素添加圆角边框，这是一个简写属性，是border-top-right-radius、border-top-right-radius、border-bottom-left-radius、border-bottom-right-radius简写的一个属性。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">border-radius: 1-4 length | % &#x2F; 1-4 length | % 1-4 length;</span><br></pre></td></tr></table></figure>
+<pre><code>注：border-radius最多可以设置八个值，也可以只设置一个值，下面的设置都是有效的。</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">border-radius: 10px;</span><br><span class="line">border-radius: 10px 50px;</span><br><span class="line">border-radius: 10px 50px 80px;</span><br><span class="line">border-radius: 10px 50px 80px 100px;</span><br><span class="line"></span><br><span class="line">border-radius: 50%;</span><br><span class="line">border-radius: 10% &#x2F; 50%;</span><br><span class="line">border-radius: 50px 50px &#x2F; 100px;</span><br><span class="line">border-radius: 10px 50px &#x2F; 30% 40%;</span><br><span class="line">border-radius: 10px 50px 80px 100px &#x2F; 10px 50px 80px 100px;</span><br></pre></td></tr></table></figure>
+<p>上面的九种写法都是正确，具体效果如下图：</p>
+<table>
+<thead>
+<tr>
+<th><img src="/images/border-radius01.png" alt=""></th>
+<th><img src="/images/border-radius02.png" alt=""></th>
+<th><img src="/images/border-radius03.png" alt=""></th>
+<th><img src="/images/border-radius04.png" alt=""></th>
+<th><img src="/images/border-radius05.png" alt=""></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="/images/border-radius06.png" alt=""></td>
+<td><img src="/images/border-radius07.png" alt=""></td>
+<td><img src="/images/border-radius08.png" alt=""></td>
+<td><img src="/images/border-radius09.png" alt=""></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="语法解释"><a href="#语法解释" class="headerlink" title="语法解释"></a>语法解释</h3><p><img src="/images/border-radius-jiegou.png" alt=""> </p>
+<p>border-radius是由border-top-left-radius、border-top-right-radius、border-bottom-left-radius、border-bottom-right-radius简写成的，这个四个属性分别对应元素的四个角，同时每个角有两个方向，所以border-radius最多可以取8个值。根据CSS的取值顺序‘top - right - bottom -left’。<br>设置一个值时，所有的值都相同；<br>设置两个值：top bottom相同，left right相同；<br>设置三个值：top （left right相同） bottom；<br>设置四个值：top left right bottom；<br>border-radius 中出现 ‘/’ 为 水平半径 / 垂直半径。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">border-radius: 10px;                </span><br><span class="line">border-radius: 10px 50px;</span><br><span class="line">border-radius: 10px 50px 80px;</span><br></pre></td></tr></table></figure>
+<p>相当与</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">border-radius: 10px 10px 10px 10px;</span><br><span class="line">border-radius: 10px 10px 50px 50px;</span><br><span class="line">border-radius: 10px 50px 50px 80px;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">border-radius: 10px 50px;</span><br></pre></td></tr></table></figure>
+<p>相对于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">border-top-left-radius:10px 10px;</span><br><span class="line">border-top-right-radius:50px 50px;</span><br><span class="line">border-bottom-left-radius: 50px 50px;</span><br><span class="line">border-bottom-right-radius: 10px 10px;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="二、border-radius-是如何画圆角的"><a href="#二、border-radius-是如何画圆角的" class="headerlink" title="二、border-radius 是如何画圆角的"></a>二、border-radius 是如何画圆角的</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">border-top-left-radius: 50px;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/border-radius-shixian.png" alt=""> </p>
+<p>top-left为例，设置50px的圆角，是从元素top-left的顶点定义为（0，0）然后把圆心平移到（50，50）画圆，所得到的边框。如果top-left设置的值不同，同样平移到坐标点，则画椭圆。其他top-right、bottom-left、bottom-right同理。</p>
+<h2 id="三、border-radius-应用"><a href="#三、border-radius-应用" class="headerlink" title="三、border-radius 应用"></a>三、border-radius 应用</h2><table>
+<thead>
+<tr>
+<th>样式</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>border-radius: 50%;</td>
+<td><img src="/images/border-radius10.png" alt=""></td>
+</tr>
+<tr>
+<td>border-radius: 50%;</td>
+<td><img src="/images/border-radius11.png" alt="">width &gt; height</td>
+</tr>
+<tr>
+<td>border-radius: 60% 62% 58% 59%;</td>
+<td><img src="/images/border-radius12.png" alt=""></td>
+</tr>
+</tbody></table>
+
           
         
       
