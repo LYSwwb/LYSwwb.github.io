@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="CSS," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一、为什么要用选择器我们要为某个元素设置样式，那么首先要只要到相应的元素。在css中的选择器就能为找到相应的元素，提供了非常灵活的方案。 二、选择器的种类css选择器共包含五大类：基本选择器、层级选择器、伪类选择器、伪元素选择器、属性选择器。 基础选择器基础选择器种类   选择器 类型 功能    * 通配符选择器 选择文档中所有的html元素   elem 元素选择器 选择指定的类型的 elem">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css选择器">
+<meta property="og:url" content="http://lyswwb.github.io/2020/04/21/css%E9%80%89%E6%8B%A9%E5%99%A8/index.html">
+<meta property="og:site_name" content="LYSwwb">
+<meta property="og:description" content="一、为什么要用选择器我们要为某个元素设置样式，那么首先要只要到相应的元素。在css中的选择器就能为找到相应的元素，提供了非常灵活的方案。 二、选择器的种类css选择器共包含五大类：基本选择器、层级选择器、伪类选择器、伪元素选择器、属性选择器。 基础选择器基础选择器种类   选择器 类型 功能    * 通配符选择器 选择文档中所有的html元素   elem 元素选择器 选择指定的类型的 elem">
+<meta property="article:published_time" content="2020-04-21T10:49:55.000Z">
+<meta property="article:modified_time" content="2020-04-22T09:00:36.859Z">
+<meta property="article:author" content="LYSwwb">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lyswwb.github.io/2020/04/21/css选择器/"/>
+
+
+
+
+
+  <title>css选择器 | LYSwwb</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?754c05dc05aacc9978a11e293974e2bb";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LYSwwb</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-前端">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/" rel="section">
+            
+            前端
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-后端">
+          <a href="/categories/%E5%90%8E%E7%AB%AF/" rel="section">
+            
+            后端
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-工具">
+          <a href="/categories/%E5%B7%A5%E5%85%B7/" rel="section">
+            
+            工具
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/2019/12/31/about/" rel="section">
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lyswwb.github.io/2020/04/21/css%E9%80%89%E6%8B%A9%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LYSwwb">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LYSwwb">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">css选择器</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-21T18:49:55+08:00">
+                2020-04-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、为什么要用选择器"><a href="#一、为什么要用选择器" class="headerlink" title="一、为什么要用选择器"></a>一、为什么要用选择器</h2><p>我们要为某个元素设置样式，那么首先要只要到相应的元素。在css中的选择器就能为找到相应的元素，提供了非常灵活的方案。</p>
+<h2 id="二、选择器的种类"><a href="#二、选择器的种类" class="headerlink" title="二、选择器的种类"></a>二、选择器的种类</h2><p>css选择器共包含五大类：基本选择器、层级选择器、伪类选择器、伪元素选择器、属性选择器。</p>
+<h3 id="基础选择器"><a href="#基础选择器" class="headerlink" title="基础选择器"></a>基础选择器</h3><h4 id="基础选择器种类"><a href="#基础选择器种类" class="headerlink" title="基础选择器种类"></a>基础选择器种类</h4><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>类型</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>*</td>
+<td>通配符选择器</td>
+<td>选择文档中所有的html元素</td>
+</tr>
+<tr>
+<td>elem</td>
+<td>元素选择器</td>
+<td>选择指定的类型的 elem 元素</td>
+</tr>
+<tr>
+<td>#id</td>
+<td>id选择器</td>
+<td>选择文档中id为指定 “ id “ 的元素</td>
+</tr>
+<tr>
+<td>.class</td>
+<td>类选择器</td>
+<td>选择文档中class属性为指定 “ class ” 的所有元素</td>
+</tr>
+<tr>
+<td>sel,sel</td>
+<td>群组选取器</td>
+<td>选择每一个选择器匹配的元素集合</td>
+</tr>
+</tbody></table>
+<h4 id="基础选择器示例："><a href="#基础选择器示例：" class="headerlink" title="基础选择器示例："></a>基础选择器示例：</h4><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>*</td>
+<td>匹配页面所有的html元素</td>
+</tr>
+<tr>
+<td>div</td>
+<td>匹配页面所有的div元素</td>
+</tr>
+<tr>
+<td>#id</td>
+<td>匹配页面id为“id”的元素</td>
+</tr>
+<tr>
+<td>.calss</td>
+<td>匹配页面class属性为“class”的所有元素的集合</td>
+</tr>
+<tr>
+<td>div,p</td>
+<td>匹配页面所有的div元素和p元素</td>
+</tr>
+</tbody></table>
+<h4 id="基础选择器使用"><a href="#基础选择器使用" class="headerlink" title="基础选择器使用"></a>基础选择器使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">    margin: 0;</span><br><span class="line">    padding: 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>选择文档所有的元素，清除元素的margin和padding;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">li &#123; list-style: none;&#125;     &#x2F;* 匹配页面中的li元素 *&#x2F;</span><br><span class="line">.clearfix &#123;…………&#125;            &#x2F;* 匹配页面中class属性为“clearfix”的所有元素的集合 *&#x2F;</span><br><span class="line">#form &#123;……&#125;                  &#x2F;* 匹配页面中id属性为“form”的元素 *&#x2F;</span><br></pre></td></tr></table></figure>
+<h3 id="层级选择器"><a href="#层级选择器" class="headerlink" title="层级选择器"></a>层级选择器</h3><h4 id="层级选择器种类"><a href="#层级选择器种类" class="headerlink" title="层级选择器种类"></a>层级选择器种类</h4><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>类型</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>el &gt; el</td>
+<td>子元素选择器</td>
+<td>选择 el 元素的第一层子代 el 元素</td>
+</tr>
+<tr>
+<td>el + el</td>
+<td>相邻兄弟选择器</td>
+<td>选择 el 元素的紧邻 el 元素</td>
+</tr>
+<tr>
+<td>el ~ el</td>
+<td>通用兄弟选择器</td>
+<td>选择 el 元素的后面所有的 el 元素</td>
+</tr>
+<tr>
+<td>el e</td>
+<td>后代选择器</td>
+<td>选择 el 元素的包含的所有的 e 元素</td>
+</tr>
+</tbody></table>
+<h4 id="基础选择器示例：-1"><a href="#基础选择器示例：-1" class="headerlink" title="基础选择器示例："></a>基础选择器示例：</h4><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ul &gt; li</td>
+<td>选择页面中所有 ul 元素的第一层子代 li 元素</td>
+</tr>
+<tr>
+<td>ul + div</td>
+<td>选择页面中所有 ul 元素的紧邻的div元素</td>
+</tr>
+<tr>
+<td>p ~ span</td>
+<td>选择页面中所有 p 元素的后面的兄弟span元素</td>
+</tr>
+<tr>
+<td>div p</td>
+<td>匹配页面所有的div元素下的所有p元素</td>
+</tr>
+</tbody></table>
+<h3 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h3><h4 id="伪类选择器种类"><a href="#伪类选择器种类" class="headerlink" title="伪类选择器种类"></a>伪类选择器种类</h4><p>伪类选择器包含：动态伪类选择器、目标伪类选择器、语言伪类、UI元素状态伪类选择器、结构伪类选择器、否定伪类选择器。</p>
+<h5 id="动态伪类选择器"><a href="#动态伪类选择器" class="headerlink" title="动态伪类选择器"></a>动态伪类选择器</h5><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>类型</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>el:link</td>
+<td>链接伪类选择器</td>
+<td>匹配尚未访问时的 el 链接</td>
+</tr>
+<tr>
+<td>el:visited</td>
+<td>链接伪类选择器</td>
+<td>匹配访问过的 el 链接</td>
+</tr>
+<tr>
+<td>el:active</td>
+<td>用户行为伪类选择器</td>
+<td>用于链接或者按钮被激活时的状态</td>
+</tr>
+<tr>
+<td>el:hover</td>
+<td>用户行为伪类选择器</td>
+<td>用于鼠标悬停在 el 上时的状态</td>
+</tr>
+<tr>
+<td>el:focus</td>
+<td>用户行为伪类选择器</td>
+<td>当 el 获取焦点时的状态</td>
+</tr>
+</tbody></table>
+<pre><code>注：锚点伪类的顺序“ link  visited hover active ”;:hover在IE6仅支持a:hover.</code></pre><h5 id="目标伪类选择器"><a href="#目标伪类选择器" class="headerlink" title="目标伪类选择器"></a>目标伪类选择器</h5><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>类型</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>el:target</td>
+<td>目标伪类选择器</td>
+<td>匹配页面被URL指向的 el 元素</td>
+</tr>
+</tbody></table>
+<pre><code>注：必须有URL指向时才有效。</code></pre><h5 id="语言伪类选择器"><a href="#语言伪类选择器" class="headerlink" title="语言伪类选择器"></a>语言伪类选择器</h5><p>语言伪类选择器允许在不同语言下，定义不同的规则，在多语言版本的网站中使用很方便。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:lang(en) div&#123; …… &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="UI元素状态伪类选择器"><a href="#UI元素状态伪类选择器" class="headerlink" title="UI元素状态伪类选择器"></a>UI元素状态伪类选择器</h5><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>类型</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>el:checked</td>
+<td>选中状态伪类选择器</td>
+<td>匹配页面被URL指向的 el 元素</td>
+</tr>
+<tr>
+<td>el:enabled</td>
+<td>启用状态伪类选择器</td>
+<td>匹配所有被启用的 el 元素</td>
+</tr>
+<tr>
+<td>el:disabled</td>
+<td>禁用状态伪类选择器</td>
+<td>匹配所有被禁用的 el 元素</td>
+</tr>
+</tbody></table>
+<h5 id="结构伪类选择器"><a href="#结构伪类选择器" class="headerlink" title="结构伪类选择器"></a>结构伪类选择器</h5><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>类型</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>el:first-child</td>
+<td>结构伪类选择器</td>
+<td>父元素下的第一个 el 元素</td>
+</tr>
+<tr>
+<td>el:last-child</td>
+<td>结构伪类选择器</td>
+<td>父元素下的最后一个 el 元素</td>
+</tr>
+<tr>
+<td>el e:nth-child(n)</td>
+<td>结构伪类选择器</td>
+<td>匹配 el 元素下的第n个子元素 e</td>
+</tr>
+<tr>
+<td>el e:nth-last-child(n)</td>
+<td>结构伪类选择器</td>
+<td>匹配 el 元素下的倒数第n个子元素 e</td>
+</tr>
+<tr>
+<td>el e:nth-of-type(n)</td>
+<td>结构伪类选择器</td>
+<td>匹配 el 元素下的所有指定类型 e 的第n个元素</td>
+</tr>
+<tr>
+<td>el e:nth-last-of-type(n)</td>
+<td>结构伪类选择器</td>
+<td>匹配 el 元素下的所有指定类型 e 的倒数第n个元素</td>
+</tr>
+<tr>
+<td>el e:first-of-type(n)</td>
+<td>结构伪类选择器</td>
+<td>匹配 el 元素下的所有指定类型 e 的第1个元素</td>
+</tr>
+<tr>
+<td>el e:last-of-type(n)</td>
+<td>结构伪类选择器</td>
+<td>匹配 el 元素下的所有指定类型 e 的倒数第1个元素</td>
+</tr>
+<tr>
+<td>el:only-child</td>
+<td>结构伪类选择器</td>
+<td>匹配 元素 仅有一个子元素，且元素为 el</td>
+</tr>
+<tr>
+<td>el:only-of-type</td>
+<td>结构伪类选择器</td>
+<td>匹配 元素 仅有一种类型的子元素，且元素类型为 el</td>
+</tr>
+<tr>
+<td>el:empty</td>
+<td>结构伪类选择器</td>
+<td>匹配 元素 没有任何子元素，为空节点</td>
+</tr>
+</tbody></table>
+<h5 id="结构伪类选择器："><a href="#结构伪类选择器：" class="headerlink" title="结构伪类选择器："></a>结构伪类选择器：</h5><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ul li:nth-child(1)</td>
+<td>匹配 ul 元素下的第1个子元素 li</td>
+</tr>
+<tr>
+<td>ul li:nth-child(odd)</td>
+<td>匹配 ul 元素下的所有奇数子元素 li</td>
+</tr>
+<tr>
+<td>ul li:nth-child(even)</td>
+<td>匹配 ul 元素下的所有偶数子元素 li</td>
+</tr>
+<tr>
+<td>ul li:first-child</td>
+<td>匹配 ul 元素下的第1个子元素 li</td>
+</tr>
+<tr>
+<td>ul li:last-child</td>
+<td>匹配 ul 元素下的最后第1个子元素 li</td>
+</tr>
+</tbody></table>
+<h5 id="否定伪类选择器"><a href="#否定伪类选择器" class="headerlink" title="否定伪类选择器"></a>否定伪类选择器</h5><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>类型</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>el:not(class)</td>
+<td>否定伪类选择器</td>
+<td>匹配页面中除了 class 外的所有的元素 el</td>
+</tr>
+</tbody></table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">input:not([type&#x3D;button]) &#123;&#125;  &#x2F;* 匹配除了type &#x3D; button 的所有input  *&#x2F;</span><br></pre></td></tr></table></figure>
+
+<h3 id="伪元素选择器"><a href="#伪元素选择器" class="headerlink" title="伪元素选择器"></a>伪元素选择器</h3><h4 id="伪元素选择器种类"><a href="#伪元素选择器种类" class="headerlink" title="伪元素选择器种类"></a>伪元素选择器种类</h4><p>伪元素选择器包含：::first-letter(第一个字母)、::first-line(第一行文本)、::before(创建一个内容但是内容不是DOM的一部分在元素前)、::after(创建一个内容但是内容不是DOM的一部分在元素后)、::selection(选中的文本)。</p>
+<h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3><h4 id="属性选择器种类"><a href="#属性选择器种类" class="headerlink" title="属性选择器种类"></a>属性选择器种类</h4><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>类型</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>el[attr]</td>
+<td>属性选择器</td>
+<td>选择 el 元素且 el 具有 attr 属性</td>
+</tr>
+<tr>
+<td>el[attr=val]</td>
+<td>属性选择器</td>
+<td>选择 el 元素且 el 的 attr 属性值为 val</td>
+</tr>
+<tr>
+<td>el[attr</td>
+<td>=val]</td>
+<td>属性选择器</td>
+</tr>
+<tr>
+<td>el[attr~=val]</td>
+<td>属性选择器</td>
+<td>选择 el 元素且 el 的 attr 属性值为多个空格分隔的值，其中有一个值为val</td>
+</tr>
+<tr>
+<td>el[attr*=val]</td>
+<td>属性选择器</td>
+<td>选择 el 元素且 el 的 attr 属性值存在val字符</td>
+</tr>
+<tr>
+<td>el[attr^=val]</td>
+<td>属性选择器</td>
+<td>选择 el 元素且 el 的 attr 属性值是依 val 开头的字符串</td>
+</tr>
+<tr>
+<td>el[attr$=val]</td>
+<td>属性选择器</td>
+<td>选择 el 元素且 el 的 attr 属性值是依 val 结尾的字符串</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/20/text-shadow%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="next" title="text-shadow的使用">
+                <i class="fa fa-chevron-left"></i> text-shadow的使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container"></div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">LYSwwb</p>
+              <p class="site-description motion-element" itemprop="description">记录30岁的自己</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、为什么要用选择器"><span class="nav-number">1.</span> <span class="nav-text">一、为什么要用选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、选择器的种类"><span class="nav-number">2.</span> <span class="nav-text">二、选择器的种类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础选择器"><span class="nav-number">2.1.</span> <span class="nav-text">基础选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基础选择器种类"><span class="nav-number">2.1.1.</span> <span class="nav-text">基础选择器种类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基础选择器示例："><span class="nav-number">2.1.2.</span> <span class="nav-text">基础选择器示例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基础选择器使用"><span class="nav-number">2.1.3.</span> <span class="nav-text">基础选择器使用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#层级选择器"><span class="nav-number">2.2.</span> <span class="nav-text">层级选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#层级选择器种类"><span class="nav-number">2.2.1.</span> <span class="nav-text">层级选择器种类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基础选择器示例：-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">基础选择器示例：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伪类选择器"><span class="nav-number">2.3.</span> <span class="nav-text">伪类选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#伪类选择器种类"><span class="nav-number">2.3.1.</span> <span class="nav-text">伪类选择器种类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#动态伪类选择器"><span class="nav-number">2.3.1.1.</span> <span class="nav-text">动态伪类选择器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#目标伪类选择器"><span class="nav-number">2.3.1.2.</span> <span class="nav-text">目标伪类选择器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#语言伪类选择器"><span class="nav-number">2.3.1.3.</span> <span class="nav-text">语言伪类选择器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#UI元素状态伪类选择器"><span class="nav-number">2.3.1.4.</span> <span class="nav-text">UI元素状态伪类选择器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#结构伪类选择器"><span class="nav-number">2.3.1.5.</span> <span class="nav-text">结构伪类选择器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#结构伪类选择器："><span class="nav-number">2.3.1.6.</span> <span class="nav-text">结构伪类选择器：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#否定伪类选择器"><span class="nav-number">2.3.1.7.</span> <span class="nav-text">否定伪类选择器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伪元素选择器"><span class="nav-number">2.4.</span> <span class="nav-text">伪元素选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#伪元素选择器种类"><span class="nav-number">2.4.1.</span> <span class="nav-text">伪元素选择器种类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性选择器"><span class="nav-number">2.5.</span> <span class="nav-text">属性选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#属性选择器种类"><span class="nav-number">2.5.1.</span> <span class="nav-text">属性选择器种类</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LYSwwb</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '5c336b600ea5b0bc5315',
+          clientSecret: '478b044157f9eb3909b1b13af6800c8925ed7069',
+          repo: 'LYSwwb.github.io',
+          owner: 'LYSwwb',
+          admin: ['LYSwwb'],
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
